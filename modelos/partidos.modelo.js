@@ -13,7 +13,9 @@ const escribir = data => fs.writeFileSync(FILE, JSON.stringify(data, null, 2));
 // Obtiene solo el array de partidos de Buenos Aires
 const getPartidos = () => leer()[0].provincias[0].partidos;
 
-// Exporta funciones CRUD y filtros --------------------------
+// *---- Exporta funciones CRUD y filtros ----*
+
+// Consultas GET
 // Devuelve array completo de partidos
 exports.listar = () => getPartidos();
 
@@ -23,24 +25,33 @@ exports.buscar = id => getPartidos().find(p => p.id === id);
 // Filtra por coincidencia parcial en el nombre
 exports.filtrar = q => getPartidos().filter(p => p.nombre.toLowerCase().includes(q.toLowerCase()));
 
-// Devuelve array plano con ID, Nombre del partido, Codigo Postal y Cantidad de habitantes
-exports.listarResumido = () => {
-  const partidos = exports.listar();
-  const resultado = [];
+// Devuelve partidos que cumplan **todos** los filtros recibidos
+exports.filtrarAvanzado = function (f) {
+  try {
+    return getPartidos().filter(p => {
+      // 1. nombre (parcial, case-insensitive)
+      if (f.nombre) {
+        const nom = p.nombre.toLowerCase();
+        if (!nom.includes(f.nombre.toLowerCase())) return false;
+      }
 
-  partidos.forEach(part => {
-    part.localidades.forEach(loc => {
-      resultado.push({
-        nombrePartido: part.nombre,
-        nombreLocalidad: loc.nombre,
-        codigoPostal: loc.codigoPostal,
-        poblacion: loc.poblacion
-      })
-    })    
-  });
-  return resultado;
-}
+      // 2. año exacto
+      if (f.anoFundacion && p.anoFundacion !== f.anoFundacion) return false;
 
+      // 3. cantidad de habitantes (rango)
+      if (f.cantidadHab_min && p.cantidadHab < f.cantidadHab_min) return false;
+      if (f.cantidadHab_max && p.cantidadHab > f.cantidadHab_max) return false;
+
+      return true;
+    });
+  } catch (err) {
+    // si algo falla devolvemos array vacío y dejamos que el controlador responda
+    console.error('[MODELO filtrarAvanzado] Error:', err.message);
+    return [];
+  }
+};
+
+// Modificaciones POST/PUT/DELETE
 // Agrega nuevo partido; lanza error si ID existe
 exports.crear = nuevo => {
   const datos = leer();
@@ -49,6 +60,7 @@ exports.crear = nuevo => {
   partidos.push(nuevo);
   escribir(datos);
 };
+
 // Actualiza campos de un partido existente
 exports.actualizar = (id, cambios) => {
   const datos = leer();
@@ -58,6 +70,7 @@ exports.actualizar = (id, cambios) => {
   partidos[idx] = { ...partidos[idx], ...cambios };
   escribir(datos);
 };
+
 // Elimina un partido por ID
 exports.eliminar = id => {
   const datos = leer();

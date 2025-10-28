@@ -4,9 +4,8 @@ const controlador = require('../controladores/partidos.controlador');
 const validador = require('../middlewares/validador');  // se ejecuta antes de POST/PUT
 
 // Rutas y sus funciones correspondientes
-router.get('/', controlador.filtrar);                   // GET /api/partidos
+router.get('/', controlador.filtrar);                   // GET /api/partidos?nombre=xxx&anoFundacion=yyyy&cantidadHab_min=zzz&cantidadHab_max=www
 router.get('/stats', controlador.stats);                // GET /api/partidos/stats
-router.get('/resumen', controlador.listarResumido);    // GET /api/partidos/resumido
 router.get('/:id', controlador.buscarPorId);            // GET /api/partidos/:id
 router.post('/', validador, controlador.crear);         // POST /api/partidos
 router.put('/:id', validador, controlador.actualizar);  // PUT /api/partidos/:id

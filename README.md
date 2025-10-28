@@ -1,7 +1,12 @@
+<!--
+ Si queres ver este documento en HTML, estando en Visual Studio Code:
+ - Presiona F1 y luego busca o selecciona: Markdown: Abrir vista previa
+ - Y listo, tendras otra pestaña con la vista renderizada del documento
+-->
 # BA - PARTIDOS API
 
 ## 1. Descripción
-API REST que expone los 135 partidos de la provincia de Buenos Aires (actualmente 50), sus localidades, código postal, año de fundación, latitud, longitud y cantidad de habitantes. Ideal para apps de geografía argentina.
+API REST que expone los 135 partidos de la provincia de Buenos Aires (actualmente 53), sus localidades, código postal, año de fundación, latitud, longitud y cantidad de habitantes. Ideal para apps de geografía argentina.
 Se eligio este tema con datos reales, para que se pueda utilizar en el futuro en sistemas de gestion basados en Web.
 Los datos provienen de INDEC, IGN Argentina y el listado oficial de CPA (Códigos Postales Argentinos).
 Poblaciones redondeadas a 2022 (CENSO) y fundaciones tomadas del decreto de creación de cada partido.
@@ -22,26 +27,29 @@ Validacion y logger incorporados.
 | Método | Ruta                          | Descripción                          | Ejemplo                          |
 |--------|-------------------------------|--------------------------------------|----------------------------------|
 | GET    | /api/partidos                 | Todos los partidos                   | /api/partidos                    |
-| GET    | /api/partidos/:id             | Un partido por ID (1-50)             | /api/partidos/3                  |
-| GET    | /api/partidos?nombre=San...   | Filtra por coincidencia en "partido" | /api/partidos?nombre=San...      |
-| GET    | /api/partidos/resumen         | Listar Partido, Localidad, Hab y CP  | /api/partidos/resumen            |
+| GET    | /api/partidos/:id             | Un partido por ID (1-53)             | /api/partidos/3                  |
+| GET    | /api/partidos?nombre=San...   | Filtra por coincidencia parcial o total en "partido" | /api/partidos?nombre=San...      |
+| GET    | /api/partidos?nombre=baradero&anoFundacion=1784 | Filtra por partidos que contengan "baradero" en el nombre **y** fundados en 1784 | /api/partidos?nombre=baradero&anoFundacion=1784 |
+| GET    | /api/partidos?cantidadHab_min=100000&cantidadHab_max=500000 | Filtra por partidos entre 100 mil y 500 mil habitantes | /api/partidos?cantidadHab_min=100000&cantidadHab_max=500000 |
+| GET    | /api/partidos?nombre=san&cantidadHab_min=20000 | partidos que tengan "san" en el nombre **y** 20 mil o más habitantes | /api/partidos?nombre=san&cantidadHab_min=20000 |
 | POST   | /api/partidos                 | Crea nuevo partido                   | Ver body abajo                   |
 | PUT    | /api/partidos/:id             | Actualiza un partido                 | /api/partidos/7                  |
 | DELETE | /api/partidos/:id             | Elimina un partido                   | /api/partidos/11                 |
 | GET    | /api/partidos/stats           | Extra: cantidad total + promedio hab | /api/partidos/stats              |
 
-### Body ejemplo POST
+### Body ejemplo POST (puede usarse para pruebas)
 ```json
 {
-  "id": 50,
-  "nombre": "General Paz",
-  "cantidadHab": 12000,
-  "anoFundacion": 1876,
-  "lat": -35.5333,
-  "lng": -60.0333,
+  "nombre": "San Antonio de Areco",
+  "cantidadHab": 26671,
+  "anoFundacion": 1730,
+  "lat": -34.45,
+  "lng": -59.47,
   "localidades": [
-    { "id": 5001, "nombre": "General Paz", "codigoPostal": 6557, "lat": -35.5333, "lng": -60.0333, "poblacion": 11000 },
-    { "id": 5002, "nombre": "Villa Saboya", "codigoPostal": 6558, "lat": -35.5667, "lng": -59.95, "poblacion": 1000 }
+    { "nombre": "San Antonio de Areco", "codigoPostal": 2760, "lat": -34.45, "lng": -59.47, "poblacion": 19768 },
+    { "nombre": "Villa Lía", "codigoPostal": 2761, "lat": -34.52, "lng": -59.42, "poblacion": 1623 },
+    { "nombre": "Duggan", "codigoPostal": 2762, "lat": -34.48, "lng": -59.38, "poblacion": 1114 },
+    { "nombre": "Vagues", "codigoPostal": 2763, "lat": -34.43, "lng": -59.52, "poblacion": 600 }
   ]
 }
 ```
@@ -54,11 +62,14 @@ Esencialmente, es una función que tiene acceso al objeto de solicitud (req), al
 
 ## 5. Validaciones
 
-- Nombre del Partido que sea un string - error: 'Nombre inválido'
-- Cantidad de habitantes que sea un numero entero mayor o igual a 0 - error: 'Cantidad de Habitantes inválido'
-- Año de fundacion mayor a 1515 y menor a 2023 - error: 'Año de Fundación inválido'
-- Mira que Localidades sea un Array y que no este vacio - error: 'Localidades inválido'
-- Tambien se controla individualmente el nombre y que el codigo postal sea  un numero entero - error: 'Localidad inválida'
+- No envíes `ID` al crear un partido (`POST`). El servidor asigna automáticamente el siguiente número entero consecutivo.
+- No se permite repetir el **nombre** de un partido (mayúsculas/minúsculas indistintas). Si intentas duplicarlo, la API responde `409 Conflict`.
+- Verifica que el nombre del **partido** sea un `string` - error: `Nombre inválido`
+- Verifica que el nombre del **partido** no exista - error: `Nombre de partido duplicado`
+- Cantidad de habitantes que sea un numero entero mayor o igual a 0 de lo contrario - error: `Cantidad de Habitantes inválido`
+- Año de fundacion mayor a 1515 y menor a 2023 - error: `Año de Fundación inválido`
+- Mira que Localidades sea un Array y que no este vacio - error: `Localidades inválido`
+- Tambien se controla individualmente el nombre y que el codigo postal sea un numero entero - error: `Localidad inválida`
 
 ### ¿Qué garantiza este código?
 - Que se reciba un array no vacío.
@@ -67,20 +78,22 @@ Esencialmente, es una función que tiene acceso al objeto de solicitud (req), al
 
 ## 6. Ejemplos de uso en POSTMAN
 ### Prueba de GET (Consultar registro de forma General, por ID, por Filtro)
-![GET_gral](imagenes/GET_gral.png)
-![GET_id](imagenes/GET_id.png)
-![GET_filtro](imagenes/GET_filtro.png)
+![Captura de Pantalla GET Listado](imagenes/GET_gral.png)
+---
+![Captura de Pantalla GET por ID](imagenes/GET_id.png)
+---
+![Captura de Pantalla GET con Filtro](imagenes/GET_filtro.png)
+---
+![Captura de Pantalla GET con filtro avanzado](imagenes/GET__f_avanzado.png)
 
 ### Prueba de POST (Crear un registro)
-![POST51](imagenes/POST51.png)
-![POST52](imagenes/POST52.png)
+![Captura de Pantalla POST "Creacion de registro"](imagenes/POST54.png)
 
 ### Prueba de PUT (Actualizar un registro)
-![PUT50](imagenes/PUT50.png)
-![PUT51](imagenes/PUT51.png)
+![Captura de Pantalla PUT "Actualizacion de registro"](imagenes/PUT54.png)
 
 ### Prueba de DELETE (Eliminar un registro)
-![DELETE](imagenes/DELETE.png)
+![Captura de Pantalla DELETE "Eliminacion de registro"](imagenes/DELETE.png)
 
 ## 7. Conclusiones
 La realizacion de este proyecto, fue un gran desafio para mi. Me apoye en parte con la documentacion, clases, y teoria proporcionada. Tambien se utilizo IA para verificacion, completar codigo y explicaciones de las partes del codigo.

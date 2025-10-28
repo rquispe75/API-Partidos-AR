@@ -17,7 +17,6 @@
             "lng": -62.8333,
             "localidades": [
               {
-                "id": 101,
                 "nombre": "Carhué",
                 "codigoPostal": 6430,
                 "lat": -36.3167,
@@ -25,7 +24,6 @@
                 "poblacion": 9000
               },
               {
-                "id": 102,
                 "nombre": "Delfín Huergo",
                 "codigoPostal": 6431,
                 "lat": -36.35,
@@ -43,7 +41,6 @@
             "lng": -60.0333,
             "localidades": [
               {
-                "id": 201,
                 "nombre": "Adolfo Gonzales Chaves",
                 "codigoPostal": 7515,
                 "lat": -37.9667,
@@ -51,7 +48,6 @@
                 "poblacion": 6000
               },
               {
-                "id": 202,
                 "nombre": "Balcarce",
                 "codigoPostal": 7517,
                 "lat": -37.85,
@@ -69,7 +65,6 @@
             "lng": -60.2833,
             "localidades": [
               {
-                "id": 301,
                 "nombre": "Alberti",
                 "codigoPostal": 6632,
                 "lat": -35.1333,
@@ -77,7 +72,6 @@
                 "poblacion": 8500
               },
               {
-                "id": 302,
                 "nombre": "Coronel Seguí",
                 "codigoPostal": 6633,
                 "lat": -35.2167,
@@ -95,7 +89,6 @@
             "lng": -58.3833,
             "localidades": [
               {
-                "id": 401,
                 "nombre": "San Justo",
                 "codigoPostal": 1754,
                 "lat": -34.8167,
@@ -103,7 +96,6 @@
                 "poblacion": 110000
               },
               {
-                "id": 402,
                 "nombre": "Rafael Calzada",
                 "codigoPostal": 1847,
                 "lat": -34.7833,
@@ -111,7 +103,6 @@
                 "poblacion": 60000
               },
               {
-                "id": 403,
                 "nombre": "José Mármol",
                 "codigoPostal": 1756,
                 "lat": -34.788,
@@ -119,7 +110,6 @@
                 "poblacion": 45000
               },
               {
-                "id": 404,
                 "nombre": "Claypole",
                 "codigoPostal": 1849,
                 "lat": -34.8167,
@@ -127,7 +117,6 @@
                 "poblacion": 42000
               },
               {
-                "id": 405,
                 "nombre": "Longchamps",
                 "codigoPostal": 1854,
                 "lat": -34.85,
@@ -145,7 +134,6 @@
             "lng": -60.1167,
             "localidades": [
               {
-                "id": 5501,
                 "nombre": "Arrecifes",
                 "codigoPostal": 2740,
                 "lat": -34.0667,
@@ -153,7 +141,6 @@
                 "poblacion": 24336
               },
               {
-                "id": 5502,
                 "nombre": "Todd",
                 "codigoPostal": 2741,
                 "lat": -34.1167,
@@ -161,7 +148,6 @@
                 "poblacion": 726
               },
               {
-                "id": 5503,
                 "nombre": "Viña",
                 "codigoPostal": 2742,
                 "lat": -34.0833,
@@ -169,7 +155,6 @@
                 "poblacion": 483
               },
               {
-                "id": 5504,
                 "nombre": "Villa Lía",
                 "codigoPostal": 2743,
                 "lat": -34.05,
@@ -177,7 +162,6 @@
                 "poblacion": 450
               },
               {
-                "id": 5505,
                 "nombre": "Villa López",
                 "codigoPostal": 2744,
                 "lat": -34.1,
@@ -185,7 +169,6 @@
                 "poblacion": 420
               },
               {
-                "id": 5506,
                 "nombre": "Villa San José",
                 "codigoPostal": 2745,
                 "lat": -34.0333,
@@ -193,7 +176,6 @@
                 "poblacion": 380
               },
               {
-                "id": 5507,
                 "nombre": "Villa Walker",
                 "codigoPostal": 2746,
                 "lat": -34.1333,
@@ -211,7 +193,6 @@
             "lng": -58.3667,
             "localidades": [
               {
-                "id": 601,
                 "nombre": "Avellaneda",
                 "codigoPostal": 1870,
                 "lat": -34.6667,
@@ -219,7 +200,6 @@
                 "poblacion": 120000
               },
               {
-                "id": 602,
                 "nombre": "Gerli",
                 "codigoPostal": 1871,
                 "lat": -34.6833,
@@ -227,7 +207,6 @@
                 "poblacion": 70000
               },
               {
-                "id": 603,
                 "nombre": "Sarandí",
                 "codigoPostal": 1872,
                 "lat": -34.6833,
@@ -235,7 +214,6 @@
                 "poblacion": 65000
               },
               {
-                "id": 604,
                 "nombre": "Dock Sud",
                 "codigoPostal": 1873,
                 "lat": -34.65,
@@ -253,7 +231,6 @@
             "lng": -58.5,
             "localidades": [
               {
-                "id": 701,
                 "nombre": "Ayacucho",
                 "codigoPostal": 7112,
                 "lat": -37.15,
@@ -261,7 +238,6 @@
                 "poblacion": 18000
               },
               {
-                "id": 702,
                 "nombre": "Juan José Paso",
                 "codigoPostal": 7113,
                 "lat": -37.2167,
@@ -279,7 +255,6 @@
             "lng": -59.8667,
             "localidades": [
               {
-                "id": 801,
                 "nombre": "Azul",
                 "codigoPostal": 7300,
                 "lat": -36.7667,
@@ -287,7 +262,6 @@
                 "poblacion": 63000
               },
               {
-                "id": 802,
                 "nombre": "El Recado",
                 "codigoPostal": 7301,
                 "lat": -36.8167,
@@ -305,7 +279,6 @@
             "lng": -62.2667,
             "localidades": [
               {
-                "id": 901,
                 "nombre": "Bahía Blanca",
                 "codigoPostal": 8000,
                 "lat": -38.7167,
@@ -313,7 +286,6 @@
                 "poblacion": 301000
               },
               {
-                "id": 902,
                 "nombre": "Grünbein",
                 "codigoPostal": 8105,
                 "lat": -38.65,
@@ -321,7 +293,6 @@
                 "poblacion": 20000
               },
               {
-                "id": 903,
                 "nombre": "General Cerri",
                 "codigoPostal": 8101,
                 "lat": -38.75,
@@ -339,7 +310,6 @@
             "lng": -58.2667,
             "localidades": [
               {
-                "id": 1001,
                 "nombre": "Balcarce",
                 "codigoPostal": 7620,
                 "lat": -37.85,
@@ -347,7 +317,6 @@
                 "poblacion": 44000
               },
               {
-                "id": 1002,
                 "nombre": "Napaleofú",
                 "codigoPostal": 7621,
                 "lat": -37.95,
@@ -365,7 +334,6 @@
             "lng": -59.5333,
             "localidades": [
               {
-                "id": 5201,
                 "nombre": "Baradero",
                 "codigoPostal": 2942,
                 "lat": -33.8333,
@@ -373,7 +341,6 @@
                 "poblacion": 29000
               },
               {
-                "id": 5202,
                 "nombre": "Villa Alsina",
                 "codigoPostal": 2943,
                 "lat": -33.8667,
@@ -381,7 +348,6 @@
                 "poblacion": 1500
               },
               {
-                "id": 5203,
                 "nombre": "Irineo Portela",
                 "codigoPostal": 2944,
                 "lat": -33.8833,
@@ -389,7 +355,6 @@
                 "poblacion": 1200
               },
               {
-                "id": 5204,
                 "nombre": "Santa Coloma",
                 "codigoPostal": 2945,
                 "lat": -33.8833,
@@ -407,7 +372,6 @@
             "lng": -59.7833,
             "localidades": [
               {
-                "id": 1201,
                 "nombre": "Benito Juárez",
                 "codigoPostal": 7643,
                 "lat": -37.6667,
@@ -415,7 +379,6 @@
                 "poblacion": 22000
               },
               {
-                "id": 1202,
                 "nombre": "Helvecia",
                 "codigoPostal": 7644,
                 "lat": -37.7167,
@@ -433,7 +396,6 @@
             "lng": -58.2167,
             "localidades": [
               {
-                "id": 1301,
                 "nombre": "Berazategui",
                 "codigoPostal": 1884,
                 "lat": -34.7667,
@@ -451,7 +413,6 @@
             "lng": -57.8833,
             "localidades": [
               {
-                "id": 1401,
                 "nombre": "Berisso",
                 "codigoPostal": 1923,
                 "lat": -34.8833,
@@ -469,7 +430,6 @@
             "lng": -61.1167,
             "localidades": [
               {
-                "id": 1501,
                 "nombre": "San Carlos de Bolívar",
                 "codigoPostal": 6550,
                 "lat": -36.2333,
@@ -477,7 +437,6 @@
                 "poblacion": 35000
               },
               {
-                "id": 1502,
                 "nombre": "Urdampilleta",
                 "codigoPostal": 6551,
                 "lat": -36.2833,
@@ -495,7 +454,6 @@
             "lng": -60.4833,
             "localidades": [
               {
-                "id": 1601,
                 "nombre": "Bragado",
                 "codigoPostal": 6640,
                 "lat": -35.1333,
@@ -503,7 +461,6 @@
                 "poblacion": 40000
               },
               {
-                "id": 1602,
                 "nombre": "General O'Brien",
                 "codigoPostal": 6641,
                 "lat": -35.2,
@@ -521,7 +478,6 @@
             "lng": -58.2333,
             "localidades": [
               {
-                "id": 1701,
                 "nombre": "Brandsen",
                 "codigoPostal": 1980,
                 "lat": -35.0833,
@@ -529,7 +485,6 @@
                 "poblacion": 25000
               },
               {
-                "id": 1702,
                 "nombre": "Altamirano",
                 "codigoPostal": 1981,
                 "lat": -35.15,
@@ -547,7 +502,6 @@
             "lng": -58.95,
             "localidades": [
               {
-                "id": 1801,
                 "nombre": "Campana",
                 "codigoPostal": 2804,
                 "lat": -34.1667,
@@ -555,7 +509,6 @@
                 "poblacion": 95000
               },
               {
-                "id": 1802,
                 "nombre": "Lomas del Palomar",
                 "codigoPostal": 2805,
                 "lat": -34.2,
@@ -573,7 +526,6 @@
             "lng": -58.7167,
             "localidades": [
               {
-                "id": 1901,
                 "nombre": "Cañuelas",
                 "codigoPostal": 1814,
                 "lat": -35.05,
@@ -581,7 +533,6 @@
                 "poblacion": 55000
               },
               {
-                "id": 1902,
                 "nombre": "Alejandro Korn",
                 "codigoPostal": 1816,
                 "lat": -35.0333,
@@ -599,7 +550,6 @@
             "lng": -59.7167,
             "localidades": [
               {
-                "id": 2001,
                 "nombre": "Capitán Sarmiento",
                 "codigoPostal": 2752,
                 "lat": -34.1333,
@@ -607,7 +557,6 @@
                 "poblacion": 14000
               },
               {
-                "id": 2002,
                 "nombre": "Chascomús",
                 "codigoPostal": 7130,
                 "lat": -35.5833,
@@ -625,7 +574,6 @@
             "lng": -61.3833,
             "localidades": [
               {
-                "id": 2101,
                 "nombre": "Carlos Casares",
                 "codigoPostal": 6530,
                 "lat": -35.6167,
@@ -633,7 +581,6 @@
                 "poblacion": 22000
               },
               {
-                "id": 2102,
                 "nombre": "Moctezuma",
                 "codigoPostal": 6531,
                 "lat": -35.6667,
@@ -651,7 +598,6 @@
             "lng": -62.6833,
             "localidades": [
               {
-                "id": 2201,
                 "nombre": "Carlos Tejedor",
                 "codigoPostal": 6535,
                 "lat": -35.3833,
@@ -659,7 +605,6 @@
                 "poblacion": 12000
               },
               {
-                "id": 2202,
                 "nombre": "Timote",
                 "codigoPostal": 6536,
                 "lat": -35.45,
@@ -677,7 +622,6 @@
             "lng": -59.8167,
             "localidades": [
               {
-                "id": 2301,
                 "nombre": "Carmen de Areco",
                 "codigoPostal": 2770,
                 "lat": -34.4167,
@@ -685,7 +629,6 @@
                 "poblacion": 19000
               },
               {
-                "id": 2302,
                 "nombre": "El Recado",
                 "codigoPostal": 2771,
                 "lat": -34.45,
@@ -703,7 +646,6 @@
             "lng": -57.8667,
             "localidades": [
               {
-                "id": 2401,
                 "nombre": "Castelli",
                 "codigoPostal": 7114,
                 "lat": -36.1167,
@@ -711,7 +653,6 @@
                 "poblacion": 11000
               },
               {
-                "id": 2402,
                 "nombre": "Casalins",
                 "codigoPostal": 7115,
                 "lat": -36.15,
@@ -729,7 +670,6 @@
             "lng": -60.4667,
             "localidades": [
               {
-                "id": 2501,
                 "nombre": "Chacabuco",
                 "codigoPostal": 6740,
                 "lat": -34.6333,
@@ -737,7 +677,6 @@
                 "poblacion": 48000
               },
               {
-                "id": 2502,
                 "nombre": "Luis Guillon",
                 "codigoPostal": 6741,
                 "lat": -34.7,
@@ -755,7 +694,6 @@
             "lng": -58.0333,
             "localidades": [
               {
-                "id": 2601,
                 "nombre": "Chascomús",
                 "codigoPostal": 7130,
                 "lat": -35.5833,
@@ -763,7 +701,6 @@
                 "poblacion": 42000
               },
               {
-                "id": 2602,
                 "nombre": "Vivoratá",
                 "codigoPostal": 7131,
                 "lat": -35.65,
@@ -781,7 +718,6 @@
             "lng": -60.0167,
             "localidades": [
               {
-                "id": 2701,
                 "nombre": "Chivilcoy",
                 "codigoPostal": 6620,
                 "lat": -34.9,
@@ -789,7 +725,6 @@
                 "poblacion": 65000
               },
               {
-                "id": 2702,
                 "nombre": "González Moreno",
                 "codigoPostal": 6621,
                 "lat": -34.95,
@@ -807,7 +742,6 @@
             "lng": -61.1,
             "localidades": [
               {
-                "id": 2801,
                 "nombre": "Colón",
                 "codigoPostal": 2720,
                 "lat": -33.8833,
@@ -815,7 +749,6 @@
                 "poblacion": 27000
               },
               {
-                "id": 2802,
                 "nombre": "Carboni",
                 "codigoPostal": 2721,
                 "lat": -33.9167,
@@ -833,7 +766,6 @@
             "lng": -61.2833,
             "localidades": [
               {
-                "id": 2901,
                 "nombre": "Coronel Dorrego",
                 "codigoPostal": 7503,
                 "lat": -38.7167,
@@ -841,7 +773,6 @@
                 "poblacion": 15000
               },
               {
-                "id": 2902,
                 "nombre": "Copetonas",
                 "codigoPostal": 7504,
                 "lat": -38.75,
@@ -859,7 +790,6 @@
             "lng": -61.8667,
             "localidades": [
               {
-                "id": 3001,
                 "nombre": "Coronel Pringles",
                 "codigoPostal": 7530,
                 "lat": -37.9833,
@@ -867,7 +797,6 @@
                 "poblacion": 24000
               },
               {
-                "id": 3002,
                 "nombre": "La Chacra",
                 "codigoPostal": 7531,
                 "lat": -38.0333,
@@ -885,7 +814,6 @@
             "lng": -62.0833,
             "localidades": [
               {
-                "id": 3101,
                 "nombre": "Punta Alta",
                 "codigoPostal": 8109,
                 "lat": -38.8833,
@@ -893,7 +821,6 @@
                 "poblacion": 62000
               },
               {
-                "id": 3102,
                 "nombre": "Coronel Rosales",
                 "codigoPostal": 8108,
                 "lat": -38.95,
@@ -911,7 +838,6 @@
             "lng": -61.9333,
             "localidades": [
               {
-                "id": 3201,
                 "nombre": "Coronel Suárez",
                 "codigoPostal": 7540,
                 "lat": -37.45,
@@ -919,7 +845,6 @@
                 "poblacion": 24000
               },
               {
-                "id": 3202,
                 "nombre": "Huanguelén",
                 "codigoPostal": 7541,
                 "lat": -37.5,
@@ -937,7 +862,6 @@
             "lng": -61.7167,
             "localidades": [
               {
-                "id": 3301,
                 "nombre": "Daireaux",
                 "codigoPostal": 6555,
                 "lat": -36.6167,
@@ -945,7 +869,6 @@
                 "poblacion": 15000
               },
               {
-                "id": 3302,
                 "nombre": "Laurales",
                 "codigoPostal": 6556,
                 "lat": -36.65,
@@ -963,7 +886,6 @@
             "lng": -57.6833,
             "localidades": [
               {
-                "id": 3401,
                 "nombre": "Dolores",
                 "codigoPostal": 7100,
                 "lat": -36.3167,
@@ -971,7 +893,6 @@
                 "poblacion": 32000
               },
               {
-                "id": 3402,
                 "nombre": "Sevigné",
                 "codigoPostal": 7101,
                 "lat": -36.35,
@@ -989,7 +910,6 @@
             "lng": -57.9,
             "localidades": [
               {
-                "id": 3501,
                 "nombre": "Ensenada",
                 "codigoPostal": 1925,
                 "lat": -34.8667,
@@ -1007,7 +927,6 @@
             "lng": -58.7833,
             "localidades": [
               {
-                "id": 3601,
                 "nombre": "Belén de Escobar",
                 "codigoPostal": 1625,
                 "lat": -34.3667,
@@ -1015,7 +934,6 @@
                 "poblacion": 190000
               },
               {
-                "id": 3602,
                 "nombre": "Ingeniero Maschwitz",
                 "codigoPostal": 1623,
                 "lat": -34.35,
@@ -1033,7 +951,6 @@
             "lng": -58.55,
             "localidades": [
               {
-                "id": 3701,
                 "nombre": "Monte Grande",
                 "codigoPostal": 1842,
                 "lat": -34.8167,
@@ -1041,7 +958,6 @@
                 "poblacion": 110000
               },
               {
-                "id": 3702,
                 "nombre": "Esteban Echeverría",
                 "codigoPostal": 1804,
                 "lat": -34.85,
@@ -1049,7 +965,6 @@
                 "poblacion": 90000
               },
               {
-                "id": 3703,
                 "nombre": "9 de Abril",
                 "codigoPostal": 1846,
                 "lat": -34.8667,
@@ -1067,7 +982,6 @@
             "lng": -59.0333,
             "localidades": [
               {
-                "id": 3801,
                 "nombre": "Capilla del Señor",
                 "codigoPostal": 2812,
                 "lat": -34.25,
@@ -1075,7 +989,6 @@
                 "poblacion": 10000
               },
               {
-                "id": 3802,
                 "nombre": "Exaltación de la Cruz",
                 "codigoPostal": 2813,
                 "lat": -34.3333,
@@ -1093,7 +1006,6 @@
             "lng": -58.5333,
             "localidades": [
               {
-                "id": 3901,
                 "nombre": "Ezeiza",
                 "codigoPostal": 1804,
                 "lat": -34.85,
@@ -1111,7 +1023,6 @@
             "lng": -58.2833,
             "localidades": [
               {
-                "id": 4001,
                 "nombre": "Florencio Varela",
                 "codigoPostal": 1888,
                 "lat": -34.8167,
@@ -1119,7 +1030,6 @@
                 "poblacion": 120000
               },
               {
-                "id": 4002,
                 "nombre": "Bosques",
                 "codigoPostal": 1847,
                 "lat": -34.8333,
@@ -1127,7 +1037,6 @@
                 "poblacion": 180000
               },
               {
-                "id": 4003,
                 "nombre": "Glew",
                 "codigoPostal": 1856,
                 "lat": -34.8,
@@ -1145,7 +1054,6 @@
             "lng": -57.8667,
             "localidades": [
               {
-                "id": 4101,
                 "nombre": "Miramar",
                 "codigoPostal": 7607,
                 "lat": -38.2333,
@@ -1153,7 +1061,6 @@
                 "poblacion": 32000
               },
               {
-                "id": 4102,
                 "nombre": "Comandante Nicanor Otamendi",
                 "codigoPostal": 7608,
                 "lat": -38.2667,
@@ -1171,7 +1078,6 @@
             "lng": -60.5833,
             "localidades": [
               {
-                "id": 4201,
                 "nombre": "General Alvear",
                 "codigoPostal": 6230,
                 "lat": -36.0167,
@@ -1179,7 +1085,6 @@
                 "poblacion": 14000
               },
               {
-                "id": 4202,
                 "nombre": "Paso de las Carretas",
                 "codigoPostal": 6231,
                 "lat": -36.05,
@@ -1197,7 +1102,6 @@
             "lng": -61.3167,
             "localidades": [
               {
-                "id": 4301,
                 "nombre": "General Arenales",
                 "codigoPostal": 2747,
                 "lat": -34.3167,
@@ -1205,7 +1109,6 @@
                 "poblacion": 15000
               },
               {
-                "id": 4302,
                 "nombre": "Vedia",
                 "codigoPostal": 2749,
                 "lat": -34.35,
@@ -1223,7 +1126,6 @@
             "lng": -58.7833,
             "localidades": [
               {
-                "id": 4401,
                 "nombre": "General Belgrano",
                 "codigoPostal": 7051,
                 "lat": -35.7167,
@@ -1231,7 +1133,6 @@
                 "poblacion": 17000
               },
               {
-                "id": 4402,
                 "nombre": "Gobernador Castro",
                 "codigoPostal": 7053,
                 "lat": -35.75,
@@ -1249,7 +1150,6 @@
             "lng": -57.8167,
             "localidades": [
               {
-                "id": 4501,
                 "nombre": "General Guido",
                 "codigoPostal": 7116,
                 "lat": -36.4833,
@@ -1257,7 +1157,6 @@
                 "poblacion": 11000
               },
               {
-                "id": 4502,
                 "nombre": "Capitán Castro",
                 "codigoPostal": 7117,
                 "lat": -36.5167,
@@ -1275,7 +1174,6 @@
             "lng": -61.5833,
             "localidades": [
               {
-                "id": 4601,
                 "nombre": "General Lamadrid",
                 "codigoPostal": 7532,
                 "lat": -37.75,
@@ -1293,7 +1191,6 @@
             "lng": -58.95,
             "localidades": [
               {
-                "id": 4701,
                 "nombre": "General Las Heras",
                 "codigoPostal": 1746,
                 "lat": -34.9167,
@@ -1301,7 +1198,6 @@
                 "poblacion": 20000
               },
               {
-                "id": 4702,
                 "nombre": "La Sara",
                 "codigoPostal": 1748,
                 "lat": -34.95,
@@ -1319,7 +1215,6 @@
             "lng": -56.8833,
             "localidades": [
               {
-                "id": 4801,
                 "nombre": "General Lavalle",
                 "codigoPostal": 7118,
                 "lat": -36.3833,
@@ -1337,7 +1232,6 @@
             "lng": -57.1333,
             "localidades": [
               {
-                "id": 4901,
                 "nombre": "General Madariaga",
                 "codigoPostal": 7169,
                 "lat": -37.0167,
@@ -1345,7 +1239,6 @@
                 "poblacion": 23000
               },
               {
-                "id": 4902,
                 "nombre": "Divisadero",
                 "codigoPostal": 7170,
                 "lat": -37.05,
@@ -1363,7 +1256,6 @@
             "lng": -60.0333,
             "localidades": [
               {
-                "id": 5001,
                 "nombre": "General Paz",
                 "codigoPostal": 6557,
                 "lat": -35.5333,
@@ -1371,7 +1263,6 @@
                 "poblacion": 11000
               },
               {
-                "id": 5002,
                 "nombre": "Villa Saboya",
                 "codigoPostal": 6558,
                 "lat": -35.5667,
@@ -1381,7 +1272,7 @@
             ]
           },
           {
-            "id": 52,
+            "id": 51,
             "nombre": "San Pedro",
             "cantidadHab": 64000,
             "anoFundacion": 1907,
@@ -1389,7 +1280,6 @@
             "lng": -59.6667,
             "localidades": [
               {
-                "id": 5101,
                 "nombre": "San Pedro",
                 "codigoPostal": 2930,
                 "lat": -33.6833,
@@ -1397,7 +1287,6 @@
                 "poblacion": 48000
               },
               {
-                "id": 5102,
                 "nombre": "Santa Lucía",
                 "codigoPostal": 2931,
                 "lat": -33.7167,
@@ -1405,7 +1294,6 @@
                 "poblacion": 5000
               },
               {
-                "id": 5103,
                 "nombre": "Gobernador Castro",
                 "codigoPostal": 2933,
                 "lat": -33.75,
@@ -1413,7 +1301,6 @@
                 "poblacion": 4000
               },
               {
-                "id": 5104,
                 "nombre": "Río Tala",
                 "codigoPostal": 2935,
                 "lat": -33.65,
@@ -1421,7 +1308,6 @@
                 "poblacion": 3000
               },
               {
-                "id": 5105,
                 "nombre": "La Buena Moza",
                 "codigoPostal": 2936,
                 "lat": -33.7,
@@ -1429,7 +1315,6 @@
                 "poblacion": 2000
               },
               {
-                "id": 5106,
                 "nombre": "Tablas",
                 "codigoPostal": 2937,
                 "lat": -33.7667,
@@ -1437,7 +1322,6 @@
                 "poblacion": 1500
               },
               {
-                "id": 5107,
                 "nombre": "Pueblo Doyle",
                 "codigoPostal": 2938,
                 "lat": -33.6333,
@@ -1445,7 +1329,6 @@
                 "poblacion": 1000
               },
               {
-                "id": 5108,
                 "nombre": "Puerto Obligado",
                 "codigoPostal": 2939,
                 "lat": -33.6,
@@ -1455,7 +1338,7 @@
             ]
           },
           {
-            "id": 51,
+            "id": 52,
             "nombre": "Ramallo",
             "cantidadHab": 39730,
             "anoFundacion": 1907,
@@ -1463,7 +1346,6 @@
             "lng": -60.0167,
             "localidades": [
               {
-                "id": 5301,
                 "nombre": "Ramallo",
                 "codigoPostal": 2919,
                 "lat": -33.4833,
@@ -1471,7 +1353,6 @@
                 "poblacion": 19000
               },
               {
-                "id": 5302,
                 "nombre": "Villa Ramallo",
                 "codigoPostal": 2917,
                 "lat": -33.45,
@@ -1479,7 +1360,6 @@
                 "poblacion": 8500
               },
               {
-                "id": 5303,
                 "nombre": "Pueblo Doyle",
                 "codigoPostal": 2914,
                 "lat": -33.6333,
@@ -1487,7 +1367,6 @@
                 "poblacion": 3200
               },
               {
-                "id": 5304,
                 "nombre": "El Candado",
                 "codigoPostal": 2915,
                 "lat": -33.5167,
@@ -1495,7 +1374,6 @@
                 "poblacion": 2800
               },
               {
-                "id": 5305,
                 "nombre": "Villa Florida",
                 "codigoPostal": 2916,
                 "lat": -33.5,
@@ -1503,7 +1381,6 @@
                 "poblacion": 2200
               },
               {
-                "id": 5306,
                 "nombre": "Villa Sáa",
                 "codigoPostal": 2918,
                 "lat": -33.4667,
@@ -1511,7 +1388,6 @@
                 "poblacion": 1800
               },
               {
-                "id": 5307,
                 "nombre": "Villa Sarmiento",
                 "codigoPostal": 2920,
                 "lat": -33.5167,
@@ -1529,7 +1405,6 @@
             "lng": -60.2298,
             "localidades": [
               {
-                "id": 5401,
                 "nombre": "San Nicolás de los Arroyos",
                 "codigoPostal": 2900,
                 "lat": -33.3298,
@@ -1537,7 +1412,6 @@
                 "poblacion": 138000
               },
               {
-                "id": 5402,
                 "nombre": "Conesa",
                 "codigoPostal": 2901,
                 "lat": -33.2833,
@@ -1545,7 +1419,6 @@
                 "poblacion": 8500
               },
               {
-                "id": 5403,
                 "nombre": "San Pedro",
                 "codigoPostal": 2903,
                 "lat": -33.35,
@@ -1553,7 +1426,6 @@
                 "poblacion": 6200
               },
               {
-                "id": 5404,
                 "nombre": "Pérez Millán",
                 "codigoPostal": 2905,
                 "lat": -33.3167,
@@ -1561,7 +1433,6 @@
                 "poblacion": 4800
               },
               {
-                "id": 5405,
                 "nombre": "Campos Salles",
                 "codigoPostal": 2907,
                 "lat": -33.3,
@@ -1569,7 +1440,6 @@
                 "poblacion": 3200
               },
               {
-                "id": 5406,
                 "nombre": "Costa Brava",
                 "codigoPostal": 2909,
                 "lat": -33.3333,
@@ -1577,7 +1447,6 @@
                 "poblacion": 2800
               },
               {
-                "id": 5407,
                 "nombre": "El Palomar",
                 "codigoPostal": 2911,
                 "lat": -33.3667,
