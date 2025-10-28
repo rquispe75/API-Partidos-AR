@@ -28,7 +28,7 @@ Validacion y logger incorporados.
 |--------|-------------------------------|--------------------------------------|----------------------------------|
 | GET    | /api/partidos                 | Todos los partidos                   | /api/partidos                    |
 | GET    | /api/partidos/:id             | Un partido por ID (1-53)             | /api/partidos/3                  |
-| GET    | /api/partidos?nombre=San...   | Filtra por coincidencia parcial o total en "partido" | /api/partidos?nombre=San...      |
+| GET    | /api/partidos?nombre=San, Bara...   | Filtra por coincidencia parcial o total en "partido" (uno o mas) | /api/partidos?nombre=San Pedro, Baradero      |
 | GET    | /api/partidos?nombre=baradero&anoFundacion=1784 | Filtra por partidos que contengan "baradero" en el nombre **y** fundados en 1784 | /api/partidos?nombre=baradero&anoFundacion=1784 |
 | GET    | /api/partidos?cantidadHab_min=100000&cantidadHab_max=500000 | Filtra por partidos entre 100 mil y 500 mil habitantes | /api/partidos?cantidadHab_min=100000&cantidadHab_max=500000 |
 | GET    | /api/partidos?nombre=san&cantidadHab_min=20000 | partidos que tengan "san" en el nombre **y** 20 mil o más habitantes | /api/partidos?nombre=san&cantidadHab_min=20000 |
@@ -96,4 +96,66 @@ Esencialmente, es una función que tiene acceso al objeto de solicitud (req), al
 ![Captura de Pantalla DELETE "Eliminacion de registro"](imagenes/DELETE.png)
 
 ## 7. Conclusiones
-La realizacion de este proyecto, fue un gran desafio para mi. Me apoye en parte con la documentacion, clases, y teoria proporcionada. Tambien se utilizo IA para verificacion, completar codigo y explicaciones de las partes del codigo.
+### Cómo se hizo este proyecto
+#### Desarrollar una API REST que expusiera la información de los partidos de la provincia de Buenos Aires fue, sin exagerar, uno de los desafíos más enriquecedores que he enfrentado en mi formación como desarrollador. El camino estuvo lleno de curvas de aprendizaje empinadas, errores que obligaron a rehacer líneas de código y, sobre todo, de pequeñas victorias que reforzaron la teoría vista en clase.
+
+**1. Punto de partida:** la consigna y el "blanco en la pared"
+**El objetivo inicial parecía sencillo:** "crear un servicio que permita listar, crear, actualizar y eliminar partidos" (CRUD). Sin embargo, rápidamente aparecieron matices que complicaban la ecuación:
+- Validar que no se repitiera ni el id ni el nombre de un partido.
+- Generar ids autoincrementales al crear un nuevo registro.
+- Quitar el campo id de las localidades para simplificar el esquema.
+- Soportar filtros múltiples y combinables (nombre, año de fundación, cantidad de habitantes, etc.).
+- Manejar errores con mensajes claros y códigos HTTP apropiados.
+- Cada nuevo requerimiento fue una oportunidad de profundizar en conceptos que, hasta entonces, solo conocía de forma teórica.
+
+**2. Herramientas y tecnologías**
+
+ |Tecnología                |	Uso en el proyecto                                                                        |
+ |--------------------------|-------------------------------------------------------------------------------------------|
+ |Node.js + Express         |	Servidor y enrutamiento de la API.                                                        |
+ |JavaScript vanilla        |	Lógica de negocio y middlewares.                                                          |
+ |JSON plano                |	Persistencia temporal (archivo partidos.json).                                            |
+ |Postman / Thunder Client  |	Pruebas de endpoints y regresiones.                                                       |
+ |Git                       |	Control de versiones y múltiples intentos.                                                |
+ |IA generativa             |	Verificación de sintaxis, explicación de errores y generación de comentarios descriptivos.|
+
+**3. Metodología de trabajo**
+- **Diagrama de rutas primero:** antes de tocar código, dibujé en papel el flujo GET > POST > PUT > DELETE y los posibles códigos de respuesta.
+- **Desarrollo en capas:**
+- Rutas (Vista) → Controladores → Modelo → Persistencia.
+- Cada capa con una responsabilidad única.
+- **Commits pequeños:** cada vez que un endpoint respondía 200 OK, commit.
+- **Refactor seguro:** una vez que los tests en Postman pasaban, volvía al código a limpiar nombres de variables y agregar try/catch.
+- **Documentación al final:** README.md con ejemplos de llamadas y códigos de respuesta.
+
+**4. Dificultades que se presentaron**
+
+|Dificultad                   |Cómo se resolvió                   |Aprendizaje clave                  |
+|-----------------------------|-----------------------------------|-----------------------------------|
+|Validar duplicados sin romper el PUT	|Agregar una condición extra en el .some() que excluyera el id del registro que se estaba actualizando.	|Entender que "duplicado" es relativo al contexto.|
+|Generar ids autoincrementales	|Calcular maxId con reduce antes de insertar.	|Nunca confiar en un id que viene del cliente en un POST.|
+|Filtrar por múltiples parámetros	|Crear un objeto filtros dinámico y una función filtrarAvanzado() que aplique todos los criterios en cadena.	|Principio de responsabilidad única: un solo lugar decide si un registro "pasa" o no.|
+|Manejo de errores	|Envolver conversiones numéricas (Number(...)) dentro de try/catch y devolver 400 con mensajes descriptivos.	|El usuario jamás debe ver un stack trace; siempre un JSON con error.|
+|Quitar id de localidades	|Revisar todo el archivo JSON de ejemplo y asegurarse de que ninguna función intentara leer/escribir ese campo.	|La consistencia de datos es tan importante como el código.|
+
+**5. Aporte de la IA**
+**Utilicé la IA como par de programación virtual:**
+- Verificación rápida de sintaxis al pegar bloques.
+- Explicación paso a paso de por qué filter + some es más claro que un for anidado.
+- Generación de comentarios en español para no perder tiempo.
+- Propuesta de estructuras de control (por ejemplo, usar reduce para el id autoincremental).
+- Sin embargo, cada sugerencia fue revisada y adaptada; nunca se copió-pego ciego. La IA aceleró, pero no reemplazó el pensamiento crítico.
+
+**6. Conclusión personal**
+Terminar el proyecto y ver cómo Postman devuelve exactamente lo que esperaba fue una sensación de logro difícil de describir. Más allá del código, aprendí a:
+* Planificar antes de escribir.
+* Leer errores de consola sin pánico.
+* Documentar para el "yo" del futuro.
+* Confiar en mi capacidad de resolver problemas, aunque al principio parezcan gigantes.
+* La API hoy está funcionando, pero la sensación de "yo lo construí, entiendo cada línea y sé por qué está ahí" es el verdadero entregable.
+
+## 8. Instalacion y Pruebas
+- **A** -> Descarga el proyecto en ZIP o clona el repositorio `https://github.com/rquispe75/API-Partidos-AR.git`.
+- **B** -> Instala las dependencias con `npm install`.
+- **C** -> Inicia el servidor con `npm start`. 
+- **D** -> Realiza las pruebas en Postman segun los `endpoints` descripos anteriormente.
