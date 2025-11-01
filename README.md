@@ -54,7 +54,7 @@ GET    /api/partidos?nombre=baradero&anoFundacion=1784
 GET    /api/partidos?cantidadHab_min=100000&cantidadHab_max=500000
 GET    /api/partidos?nombre=san&cantidadHab_min=20000
 ```
-**Carga de nuenos registros**
+**Carga de nuevos registros**
 ```text
 POST   /api/partidos (Ver Body POST/DELETe de ejemplo)
 ```
