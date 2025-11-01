@@ -24,20 +24,54 @@ Validacion y logger incorporados.
 
 ## 3. Endpoints
 
-| Método | Ruta                          | Descripción                          | Ejemplo                          |
-|--------|-------------------------------|--------------------------------------|----------------------------------|
-| GET    | /api/partidos                 | Todos los partidos                   | /api/partidos                    |
-| GET    | /api/partidos/:id             | Un partido por ID (1-53)             | /api/partidos/3                  |
-| GET    | /api/partidos?nombre=San, Bara...   | Filtra por coincidencia parcial o total en "partido" (uno o mas) | /api/partidos?nombre=San Pedro, Baradero      |
-| GET    | /api/partidos?nombre=baradero&anoFundacion=1784 | Filtra por partidos que contengan "baradero" en el nombre **y** fundados en 1784 | /api/partidos?nombre=baradero&anoFundacion=1784 |
-| GET    | /api/partidos?cantidadHab_min=100000&cantidadHab_max=500000 | Filtra por partidos entre 100 mil y 500 mil habitantes | /api/partidos?cantidadHab_min=100000&cantidadHab_max=500000 |
-| GET    | /api/partidos?nombre=san&cantidadHab_min=20000 | partidos que tengan "san" en el nombre **y** 20 mil o más habitantes | /api/partidos?nombre=san&cantidadHab_min=20000 |
-| POST   | /api/partidos                 | Crea nuevo partido                   | Ver body abajo                   |
-| PUT    | /api/partidos/:id             | Actualiza un partido                 | /api/partidos/7                  |
-| DELETE | /api/partidos/:id             | Elimina un partido                   | /api/partidos/11                 |
-| GET    | /api/partidos/stats           | Extra: cantidad total + promedio hab | /api/partidos/stats              |
+| Método | Ruta                          | Descripción                          |
+|--------|-------------------------------|--------------------------------------|
+| GET    | /api/partidos                 | Todos los partidos                   |
+| GET    | /api/partidos/:id             | Un partido por ID (1-53)             |
+| GET    | /api/partidos?nombre=San, Bara...   | Filtra por coincidencia parcial o total en "partido" (uno o mas) |
+| GET    | /api/partidos?nombre=baradero&anoFundacion=1784    | Filtra por partidos que contengan "baradero" en el nombre **y** fundados en 1784 |
+| GET    | /api/partidos?cantidadHab_min=100000&cantidadHab_max=500000  | Filtra por partidos entre 100 mil y 500 mil habitantes |
+| GET    | /api/partidos?nombre=san&cantidadHab_min=20000               | partidos que tengan "san" en el nombre **y** 20 mil o más habitantes |
+| POST   | /api/partidos                 | Crea nuevo partido                   |
+| PUT    | /api/partidos/:id             | Actualiza un partido                 |
+| DELETE | /api/partidos/:id             | Elimina un partido                   |
+| GET    | /api/partidos/stats           | Extra: cantidad total + promedio hab |
 
-### Body ejemplo POST (puede usarse para pruebas)
+
+## Ejemplos de uso
+**Lista total:**
+```text
+GET    /api/partidos
+```
+**Busqueda por partido:**
+```text
+GET    /api/partidos/:id
+```
+**Busqueda por filtros simples y avanzados**
+```text
+GET    /api/partidos?nombre=San Pedro, Baradero
+GET    /api/partidos?nombre=baradero&anoFundacion=1784
+GET    /api/partidos?cantidadHab_min=100000&cantidadHab_max=500000
+GET    /api/partidos?nombre=san&cantidadHab_min=20000
+```
+**Carga de nuenos registros**
+```text
+POST   /api/partidos (Ver Body POST/DELETe de ejemplo)
+```
+**Actualizacion de registros**
+```text
+PUT    /api/partidos/7 (Ver Body PUT de ejemplo)
+```
+**Eliminacion de registros**
+```text
+DELETE /api/partidos/11
+```
+**Estadisticas de registros**
+```text
+GET    /api/partidos/stats
+```
+
+### Body ejemplo POST/DELETE (Usarse para pruebas)
 ```json
 {
   "nombre": "San Antonio de Areco",
@@ -53,6 +87,34 @@ Validacion y logger incorporados.
   ]
 }
 ```
+### Body ejemplo PUT selectivo (Para actualizar todo o campos especificos)
+#### Aqui estamos actualizando un partido, localidad, o el campo que se elija (El registro debe existir, el Codigo Postal debe existir).
+```json
+{
+  "nombre": "Baradero", // Esta linea puede o no estar presente
+  "localidades": [
+    {
+      "codigoPostal": 2942,
+      "nombre": "Baradero Ciudad"
+    }
+  ]
+}
+```
+#### Aqui se esta actualizando el registro, pero agregando una localidad completa (No hace falta que el Codigo Postal exista).
+```json
+{
+  "localidades": [
+    { "nombre": "Vagues", "codigoPostal": 2763, "lat": -34.43, "lng": -59.52, "poblacion": 600 }
+  ]
+}
+```
+
+## Ejemplo de Uso
+```text
+PUT /api/partidos/11
+Content-Type: application/json
+```
+
 ## 4. Middlewares implementados
 
 - **Middleware:** El middleware en una API REST actúa como una capa de procesamiento que se sitúa entre el cliente y el servidor, gestionando las solicitudes y respuestas que fluyen entre ambos.
@@ -158,4 +220,4 @@ Terminar el proyecto y ver cómo Postman devuelve exactamente lo que esperaba fu
 - **A** -> Descarga el proyecto en ZIP o clona el repositorio `https://github.com/rquispe75/API-Partidos-AR.git`.
 - **B** -> Instala las dependencias con `npm install`.
 - **C** -> Inicia el servidor con `npm start`. 
-- **D** -> Realiza las pruebas en Postman segun los `endpoints` descripos anteriormente.
+- **D** -> Realiza las pruebas en Postman segun los `endpoints` descriptos anteriormente.

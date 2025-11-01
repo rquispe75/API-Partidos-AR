@@ -30,11 +30,11 @@ exports.filtrarAvanzado = function (f) {
   try {
     return getPartidos().filter(p => {
       // 1. nombre (parcial, case-insensitive)
-      if (f.nombre) {
-        const nom = p.nombre.toLowerCase();
-        if (!nom.includes(f.nombre.toLowerCase())) return false;
-      }
-
+      
+    if (f.nombre && f.nombre.length) {
+      const ok = f.nombre.some(n => p.nombre.toLowerCase().includes(n));
+      if (!ok) return false;
+    }
       // 2. año exacto
       if (f.anoFundacion && p.anoFundacion !== f.anoFundacion) return false;
 
@@ -61,13 +61,34 @@ exports.crear = nuevo => {
   escribir(datos);
 };
 
-// Actualiza campos de un partido existente
+// Actualiza campos de un partido existente, incluyendo fusión y alta de localidades
 exports.actualizar = (id, cambios) => {
   const datos = leer();
   const partidos = datos[0].provincias[0].partidos;
   const idx = partidos.findIndex(p => p.id === id);
   if (idx === -1) throw new Error('ID no encontrado');
-  partidos[idx] = { ...partidos[idx], ...cambios };
+
+  const actual = partidos[idx];
+
+  if (cambios.localidades && Array.isArray(cambios.localidades)) {
+    cambios.localidades.forEach(locNueva => {
+      const locActual = actual.localidades.find(
+        l => l.codigoPostal === locNueva.codigoPostal
+      );
+
+      if (locActual) {
+        // Actualiza solo los campos que vinieron
+        Object.assign(locActual, locNueva);
+      } else {
+        // Agrega la nueva localidad si no existe
+        actual.localidades.push(locNueva);
+      }
+    });
+
+    delete cambios.localidades; // para no pisar el array después
+  }
+
+  Object.assign(actual, cambios);
   escribir(datos);
 };
 

@@ -1,39 +1,54 @@
 // Verifica que el body de POST/PUT tenga la estructura y tipos correctos
 // ADEMÁS:  - no repita nombre
 //          - no repita id (solo en PUT, porque en POST el id se genera automáticamente)
+// POST: exige todo
+// PUT: solo valida lo que viene
 const modelo = require('../modelos/partidos.modelo');
 
 module.exports = (req, res, next) => {
-  const { nombre, cantidadHab, anoFundacion, localidades } = req.body;
+  const esPut = req.method === 'PUT';
+  const body = req.body;
 
-  /* ---------- formato básico ---------- */
-  if (!nombre || typeof nombre !== 'string')
-    return res.status(400).json({ error: 'Nombre inválido, debe ser un string' });
+  // ---------- Función auxiliar: valida un campo ----------
+  const validarCampo = (clave, validador, mensaje) => {
+    if (clave in body) {
+      if (!validador(body[clave])) {
+        return res.status(400).json({ error: mensaje });
+      }
+    } else if (!esPut) {
+      // Si no está y no es PUT, falta campo
+      return res.status(400).json({ error: `Falta el campo: ${clave}` });
+    }
+  };
 
-  if (!Number.isInteger(cantidadHab) || cantidadHab <= 0)
-    return res.status(400).json({ error: 'Cantidad de Habitantes inválida, debe ser un número entero positivo' });
+  // ---------- Validaciones individuales ----------
+  const errores = [
+    validarCampo('nombre', v => typeof v === 'string', 'Nombre inválido, debe ser un string'),
+    validarCampo('cantidadHab', v => Number.isInteger(v) && v > 0, 'Cantidad de Habitantes inválida, debe ser un número entero positivo'),
+    validarCampo('anoFundacion', v => Number.isInteger(v) && v >= 1515 && v <= 2023, 'Año de Fundación inválido, debe estar entre 1515 y 2023'),
+    validarCampo('localidades', v => Array.isArray(v) && v.length > 0, 'Localidades inválidas, debe tener al menos una localidad')
+  ];
 
-  if (!Number.isInteger(anoFundacion) || anoFundacion < 1515 || anoFundacion > 2023)
-    return res.status(400).json({ error: 'Año de Fundación inválido, debe estar entre 1515 y 2023' });
+  // Si alguna validación falló, salimos
+  if (errores.some(e => e)) return;
 
-  if (!Array.isArray(localidades) || !localidades.length)
-    return res.status(400).json({ error: 'Localidades inválidas, debe tener al menos una localidad' });
-
-  for (const l of localidades) {
-    if (!l.nombre || !Number.isInteger(l.codigoPostal))
-      return res.status(400).json({ error: 'Localidad inválida, verifica el Codigo Postal' });
+  // Validamos cada localidad que venga
+  if (body.localidades) {
+    for (const l of body.localidades) {
+      if (!l.nombre || !Number.isInteger(l.codigoPostal)) {
+        return res.status(400).json({ error: 'Localidad inválida, verifica el Código Postal' });
+      }
+    }
   }
 
-  /* ---------- duplicados ---------- */
-const todos = modelo.listar();
+  // ---------- Duplicados: solo si se envía nombre ----------
+  if (body.nombre) {
+    const todos = modelo.listar();
+    const yaExiste = todos.some(
+      p => p.nombre.toLowerCase() === body.nombre.toLowerCase() && p.id !== Number(req.params.id)
+    );
+    if (yaExiste) return res.status(409).json({ error: 'Nombre de partido duplicado' });
+  }
 
-// nombre repetido (POST) → pero permitido si es el mismo ID (solo en PUT)
-const yaExiste = todos.some(
-  p => p.nombre.toLowerCase() === nombre.toLowerCase() && p.id !== Number(req.params.id)
-);
-
-if (yaExiste) {
-  return res.status(409).json({ error: 'Nombre de partido duplicado' });
-}
   next();
 };

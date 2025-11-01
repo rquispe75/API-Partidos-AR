@@ -40,7 +40,7 @@ exports.filtrar = (req, res) => {
 
     // conversiones numéricas (pueden lanzar Error si vienen mal)
     const filtros = {
-      nombre: nombre || undefined,
+      nombre: nombre? nombre.split(',').map(n => n.trim().toLowerCase()) : undefined,
       anoFundacion: anoFundacion ? Number(anoFundacion) : undefined,
       cantidadHab_min: cantidadHab_min ? Number(cantidadHab_min) : undefined,
       cantidadHab_max: cantidadHab_max ? Number(cantidadHab_max) : undefined
@@ -82,8 +82,28 @@ exports.crear = (req, res) => {
 
 // PUT /api/partidos/:id
 exports.actualizar = (req, res) => {
-  try { modelo.actualizar(Number(req.params.id), req.body); res.json({ msg: 'Registro actualizado', id: Number(req.params.id), cambios: req.body }); }
-  catch (e) { res.status(404).json({ error: e.message }); }
+  const id = Number(req.params.id);
+  const cambios = req.body;
+
+  // 1. Verificar que el registro existe
+  const actual = modelo.buscar(id);
+  if (!actual) return res.status(404).json({ error: 'Partido no encontrado' });
+
+  // 2. Verificar que los campos enviados sean válidos
+  const permitidos = ['nombre', 'cantidadHab', 'anoFundacion', 'lat', 'lng', 'localidades'];
+  const recibidos = Object.keys(cambios);
+  const invalidos = recibidos.filter(k => !permitidos.includes(k));
+
+  if (invalidos.length)
+    return res.status(400).json({ error: `Campos no permitidos: ${invalidos.join(', ')}` });
+
+  // 3. Aplicar cambios parciales
+  try {
+    modelo.actualizar(id, cambios);
+    res.json({ msg: 'Registro actualizado', id, cambios });
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
 };
 
 // DELETE /api/partidos/:id
@@ -95,7 +115,7 @@ exports.eliminar = (req, res) => {
 // GET /api/partidos/stats (endpoint extra)
 exports.stats = (req, res) => {
   const datos = modelo.listar();
-  const total = datos.length;
+  const totalPartidos = datos.length;
   const totalHab = datos.reduce((s, p) => s + p.cantidadHab, 0);
-  res.json({ total, totalHabitantes: totalHab });
+  res.json({ totalPartidos, totalHabitantes: totalHab });
 };
