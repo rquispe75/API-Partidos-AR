@@ -220,3 +220,4 @@
 [PUT] /api/partidos/54 - 1/11/2025, 10:10:24
 [PUT] /api/partidos/54 - 1/11/2025, 10:13:22
 [DELETE] /api/partidos/54 - 1/11/2025, 10:14:00
+[GET] /api/partidos/stats - 4/11/2025, 04:20:28
